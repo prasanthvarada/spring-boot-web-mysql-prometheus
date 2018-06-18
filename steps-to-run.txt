@@ -1,0 +1,65 @@
+https://github.com/springframeworkguru/springbootwebapp/tree/springboot-mysql
+
+https://springframework.guru/configuring-spring-boot-for-mysql/
+
+Create a database springbootdb in mysql (it will create and drop the tables automatically on start-up)
+mysql -u root -p (admin)
+create database springbootdb;
+
+http://localhost:8080
+http://localhost:8080/products
+
+D:\Pr364954\D_Drive\Software Downloads\prometheus-2.2.1.windows-amd64>prometheus --config.file=prometheus.yml
+http://localhost:9090/
+
+
+D:\Pr364954\D_Drive\swdownloads\grafana-5.0.4\bin>grafana-server.exe
+http://localhost:3000 (grafana localhost)
+prometheus_target_interval_length_seconds_count (edit -> title)
+http_requests_total (edit -> title)
+
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+Created MonitoringConfig.java
+
+Added the below additional dependencies in existing pom.xml
+
+
+	<parent>
+		<groupId>org.springframework.boot</groupId>
+		<artifactId>spring-boot-starter-parent</artifactId>
+		<version>1.4.1.RELEASE</version>
+		<relativePath/> <!-- lookup parent from repository -->
+	</parent>
+
+	<properties>
+		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+		<java.version>1.8</java.version>
+		<prometheus.version>0.0.17</prometheus.version>
+	</properties>
+
+		<dependency>
+			<groupId>org.springframework.boot</groupId>
+			<artifactId>spring-boot-starter-actuator</artifactId>
+		</dependency>
+		<dependency>
+			<groupId>org.springframework.boot</groupId>
+			<artifactId>spring-boot-devtools</artifactId>
+			<optional>true</optional>
+		</dependency>
+		<dependency>
+			<groupId>io.prometheus</groupId>
+			<artifactId>simpleclient_spring_boot</artifactId>
+			<version>${prometheus.version}</version>
+		</dependency>
+		<dependency>
+			<groupId>io.prometheus</groupId>
+			<artifactId>simpleclient_hotspot</artifactId>
+			<version>${prometheus.version}</version>
+		</dependency>
+		<dependency>
+			<groupId>io.prometheus</groupId>
+			<artifactId>simpleclient_servlet</artifactId>
+			<version>${prometheus.version}</version>
+		</dependency>
+
+
